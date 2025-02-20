@@ -1,6 +1,6 @@
 void gameover(){
 
-
+background(navy);
 
 
 }
