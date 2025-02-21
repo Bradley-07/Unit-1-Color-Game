@@ -1,16 +1,18 @@
 color selectedColor;
 
 color navy = #1b263b;
-
+color black = #000000;
 color red = #c1121f;
 color yellow = #ffbe0b;
 color blue = #8ecae6;
 color green = #386641;
-color purple = #5e548e;
-color cyan =#bde0fe;
+color purple = #7209b7;
+color brown =#583101;
 color white = #f5ebe0;
 
-color[] colors = {red, yellow, blue, green, purple, cyan, white};
+color[] colors = {red, yellow, blue, green, purple, brown, white};
+
+
 
 
 void intro() {

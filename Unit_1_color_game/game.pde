@@ -9,6 +9,9 @@ int timer;
 void game(){
 background(navy);
 
+ println(randomNum);
+ println(randomColor);
+ println(point);
 //color  //red, yellow, green,blue, purple, cyan, white
 
 
@@ -26,13 +29,12 @@ text(words[randomNum],width/2,200);
 
 
 
-
 //button
 
 rectButton1(0,height/2+50,400,350); //match
 
 
-rectButton1(width/2,height/2+50,400,350); //dont match
+rectButton2(width/2,height/2+50,400,350); //dont match
 
 
 //line
@@ -46,30 +48,32 @@ line(width/2,height/2+50,width/2,height);
 
 void gameClicks(){
   if(mouseX > 0 && mouseX < 400 && mouseY > width/2+50 && mouseY < width/2 + 400){
-    if(randomNum == randomColor){
- match = true; 
- }
- else {
- match = false;
- }
- 
- if(!match){
- mode = gameover;
- }
+if(randomNum == randomColor){
+match = true; 
+point++;
+randomText();
+    } else {
+  match = false;  
+  mode = gameover;
+    }
   }
   
   
-  if(mouseX > width/2 && mouseX < width/2 + 400 && mouseY < height/2 +50 && mouseY < height/2 + 400){
+  if(mouseX > width/2 && mouseX < width/2 + 400 && mouseY > height/2 +50 && mouseY < height/2 + 400){
     if(randomNum == randomColor){
 match = false; 
+mode = gameover;
     } else {
   match = true;  
+  point++;
+  randomText();
     }
-if(!match){
- mode = gameover;
- }
-  }
+
+ 
 }
+}
+
+
 
 
 
@@ -80,23 +84,57 @@ if(!match){
 
 void rectButton1(int x, int y, int w, int h){
    tactile1(x,y,w,h);
-  fill(selectedColor);
+  fill(white);
   rect(x,y,w,h);
   textSize(50);
-  textAlign(CENTER,CENTER);
-  text("MATCH", 200, 500);
+  textAlign(CENTER, CENTER);
+    fill(selectedColor); 
+    text("MATCH", x + w / 2, y + h / 2); 
 }
 
 void tactile1(int x, int y, int w, int h) {
   if (mouseX > x && mouseX < x+ w && mouseY > y && mouseY < y+h) {
-      text("MATCH", 200, 500);
-    selectedColor = white;
+      
+    selectedColor = red;
     stroke(5);
     strokeWeight(4);
   } else {
-    text("MATCH", 200, 500);
+
     strokeWeight(0);
-    selectedColor = navy;
+    selectedColor = black;
     stroke(200);
+   
   }
+}
+
+void rectButton2(int x, int y, int w, int h){
+   tactile2(x,y,w,h);
+  fill(black);
+  rect(x,y,w,h);
+textSize(50);
+    textAlign(CENTER, CENTER);
+    fill(selectedColor); 
+    text("UNMATCH", x + w / 2, y + h / 2); 
+}
+
+void tactile2(int x, int y, int w, int h) {
+  if (mouseX > x && mouseX < x+ w && mouseY > y && mouseY < y+h) {
+      
+    selectedColor = red;
+    stroke(5);
+    strokeWeight(4);
+  } else {
+
+    strokeWeight(0);
+    selectedColor = white;
+    stroke(200);
+   
+  }
+}
+
+
+
+void randomText(){
+  randomNum = (int) random(0, 6);
+  randomColor = (int) random(0, 6);
 }
