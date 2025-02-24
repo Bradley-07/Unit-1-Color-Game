@@ -24,6 +24,8 @@ void intro() {
   textAlign(CENTER, CENTER);
   fill(navy);
   text("Color Matching Game", 400, 200);
+
+
 }
 
 void introClicks() {

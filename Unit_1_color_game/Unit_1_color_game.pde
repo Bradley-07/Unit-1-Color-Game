@@ -5,19 +5,28 @@ final int gameover =2;
 public int randomNum;
 public int randomColor;
 public String[] words = {"RED", "YELLOW", "BLUE", "GREEN", "PURPLE", "BROWN", "WHITE"};
+public boolean match;
+
 
 public int point;
+public int totalFrames;  // Total frames for the countdown
+public int frame;
 
 
 void setup () {
   size(800, 800);
   mode = game;
-point =0;
+
 
 
   randomNum = (int) random(0, 6);
   randomColor = (int) random(0, 6);
 
+
+//time
+int totalTime = 10;  // Countdown in seconds
+  totalFrames = totalTime * 20;  
+  frame = 0;
 }
 
 
