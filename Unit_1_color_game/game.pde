@@ -152,7 +152,12 @@ void tactile2(int x, int y, int w, int h) {
 
 
 
-void randomText() {
+void randomText() { // 50/50 split
+  if (random(1) <0.5){
   randomNum = (int) random(0, 6);
-  randomColor = (int) random(0, 6);
+  randomColor = randomNum;
+  } else{
+ randomNum= (int) random(0, 6);
+  randomColor = (randomNum + (int) random(1, 6)) % 6; 
 }
+} 
