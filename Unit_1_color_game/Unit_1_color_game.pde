@@ -21,13 +21,13 @@ void setup () {
   mode = intro;
 
 //gif
-gifsFrames = 15;
+gifsFrames = 91;
 gif = new PImage[gifsFrames];
 
 
 int i =0;
 while(i < gifsFrames){
-gif[i] = loadImage("frame_"+i+"_delay-0.1s.gif");
+gif[i] = loadImage("frame_"+i+"_delay-0.03s.gif");
 i++;
 }
 

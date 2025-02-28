@@ -20,7 +20,7 @@ void intro() {
     //gif
   
  image(gif[f],0,0,width,height);
- if (frameCount %3 ==0) f= f+1;
+ if (frameCount %1 ==0) f= f+1;
  if(f == gifsFrames) f= 0 ;
 
   rectButton(300, 350, 200, 100);
