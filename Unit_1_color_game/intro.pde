@@ -30,7 +30,7 @@ void intro() {
   fill(white);
   text("Color Theory", 400, 200);
   
-
+song.play();
 
 }
 

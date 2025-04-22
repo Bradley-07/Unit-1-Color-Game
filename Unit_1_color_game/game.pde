@@ -1,7 +1,7 @@
 
 
 void game() {
-  background(navy);
+ image(background,0,0, width,height/2+100);
 
   println(randomNum);
   println(randomColor);
@@ -34,7 +34,7 @@ void game() {
 
 
  
-      float barWidth = map(frame, 0, totalFrames, width - 40, 0); // Shrinks over time
+      float barWidth = map(frame, 0, totalFrames, width-40, 0); // Shrinks over time
       stroke(red);
       strokeWeight(1);
   fill(red);  // Green for remaining time
@@ -69,11 +69,15 @@ void gameClicks() {
   if (mouseX > 0 && mouseX < 400 && mouseY > width/2+50 && mouseY < width/2 + 400) {
     if (randomNum == randomColor) {
       match = true;
+      right.rewind();
+      right.play();
       point++;
 
       randomText();
-      
+      frame = 0;
     } else {
+      wrong.rewind();
+      wrong.play();
       match = false;
       mode = gameover;
     }
@@ -82,13 +86,17 @@ void gameClicks() {
 
   if (mouseX > width/2 && mouseX < width/2 + 400 && mouseY > height/2 +50 && mouseY < height/2 + 400) {
     if (randomNum == randomColor) {
+      wrong.rewind();
+      wrong.play();
       match = false;
       mode = gameover;
     } else {
+      right.rewind();
+      right.play();
       match = true;
       point++;
       randomText();
-     
+     frame = 0;
     }
   }
 }
@@ -153,11 +161,12 @@ void tactile2(int x, int y, int w, int h) {
 
 
 void randomText() { // 50/50 split
+frame = 0;
   if (random(1) <0.5){
   randomNum = (int) random(0, 6);
   randomColor = randomNum;
   } else{
  randomNum= (int) random(0, 6);
-  randomColor = (randomNum + (int) random(1, 6)) % 6; 
+  randomColor = (randomNum + 1+ (int) random(1, 6)) % 6; 
 }
 } 
